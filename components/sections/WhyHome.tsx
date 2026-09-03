@@ -2,174 +2,94 @@ import { whyHome } from "@/data/content";
 import Image from "next/image";
 
 export default function WhyHome() {
+  const f = whyHome.features;
+
   return (
-    <section id="why" className="bg-black text-warm-white">
-      <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 py-20 md:py-28 lg:py-36">
-        {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16 md:mb-24">
-          <div className="lg:col-span-7">
-            <p className="text-[12px] font-semibold tracking-[0.2em] uppercase text-muted mb-4">
-              О клубе
-            </p>
-            <h2 className="font-display font-bold text-[clamp(32px,9vw,46px)] md:text-[clamp(46px,4.5vw,72px)] leading-[0.95] tracking-tight text-balance">
-              <span>Почему «Магнум» называют </span>
-              <span className="italic text-burgundy-light">домом</span>
-            </h2>
-          </div>
-          <div className="lg:col-span-5 flex items-end">
-            <p className="text-[16px] md:text-[18px] leading-relaxed text-warm-white/70 max-w-[52ch] text-pretty">
-              {whyHome.lead}
-            </p>
-          </div>
-        </div>
-
-        {/* Features — editorial bento */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-5">
-          {/* 01 — Large feature with image */}
-          <article className="lg:col-span-7 relative overflow-hidden rounded-[6px] group">
-            <div className="relative aspect-[16/10] md:aspect-[16/9]">
-              <Image
-                src={whyHome.features[0].image!}
-                alt={whyHome.features[0].title}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 58vw, 100vw"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <span className="text-[11px] font-semibold tracking-[0.15em] text-burgundy-light mb-2 block">
-                {whyHome.features[0].num}
-              </span>
-              <h3 className="font-display font-bold text-[22px] md:text-[28px] leading-tight mb-2">
-                {whyHome.features[0].title}
-              </h3>
-              <p className="text-[15px] md:text-[16px] leading-relaxed text-warm-white/75 max-w-[44ch]">
-                {whyHome.features[0].body}
-              </p>
-            </div>
-          </article>
-
-          {/* 02 — Flakon */}
-          <article className="lg:col-span-5 relative overflow-hidden rounded-[6px]">
-            <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[280px]">
-              <Image
-                src={whyHome.features[1].image!}
-                alt={whyHome.features[1].title}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 42vw, 100vw"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <span className="text-[11px] font-semibold tracking-[0.15em] text-burgundy-light mb-2 block">
-                {whyHome.features[1].num}
-              </span>
-              <h3 className="font-display font-bold text-[20px] md:text-[24px] leading-tight mb-2">
-                {whyHome.features[1].title}
-              </h3>
-              <p className="text-[14px] md:text-[15px] leading-relaxed text-warm-white/75 max-w-[40ch]">
-                {whyHome.features[1].body}
-              </p>
-            </div>
-          </article>
-
-          {/* 03 — Metro (text-only compact) */}
-          <article className="lg:col-span-4 bg-burgundy-dark rounded-[6px] p-6 md:p-8 flex flex-col justify-between min-h-[200px]">
-            <span className="text-[11px] font-semibold tracking-[0.15em] text-burgundy-light mb-auto">
-              {whyHome.features[2].num}
-            </span>
-            <div>
-              <h3 className="font-display font-bold text-[20px] md:text-[24px] leading-tight mb-2">
-                {whyHome.features[2].title}
-              </h3>
-              <p className="text-[15px] leading-relaxed text-warm-white/75">
-                {whyHome.features[2].body}
-              </p>
-            </div>
-          </article>
-
-          {/* 04 — Parking */}
-          <article className="lg:col-span-4 relative overflow-hidden rounded-[6px]">
-            <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[200px]">
-              <Image
-                src={whyHome.features[3].image!}
-                alt={whyHome.features[3].title}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 33vw, 100vw"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <span className="text-[11px] font-semibold tracking-[0.15em] text-burgundy-light mb-2 block">
-                {whyHome.features[3].num}
-              </span>
-              <h3 className="font-display font-bold text-[18px] md:text-[20px] leading-tight mb-2">
-                {whyHome.features[3].title}
-              </h3>
-              <p className="text-[14px] leading-relaxed text-warm-white/75 max-w-[40ch]">
-                {whyHome.features[3].body}
-              </p>
-            </div>
-          </article>
-
-          {/* 05 — Kitchen */}
-          <article className="lg:col-span-4 relative overflow-hidden rounded-[6px]">
-            <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[200px]">
-              <Image
-                src={whyHome.features[4].image!}
-                alt={whyHome.features[4].title}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 33vw, 100vw"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <span className="text-[11px] font-semibold tracking-[0.15em] text-burgundy-light mb-2 block">
-                {whyHome.features[4].num}
-              </span>
-              <h3 className="font-display font-bold text-[18px] md:text-[20px] leading-tight mb-2">
-                {whyHome.features[4].title}
-              </h3>
-              <p className="text-[14px] leading-relaxed text-warm-white/75 max-w-[40ch]">
-                {whyHome.features[4].body}
-              </p>
-            </div>
-          </article>
-
-          {/* 06 — Team */}
-          <article className="lg:col-span-12 md:col-span-2 bg-warm-black border border-warm-white/8 rounded-[6px] p-6 md:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[4px]">
-              <Image
-                src={whyHome.features[5].image!}
-                alt={whyHome.features[5].title}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                loading="lazy"
-              />
-            </div>
-            <div>
-              <span className="text-[11px] font-semibold tracking-[0.15em] text-burgundy-light mb-3 block">
-                {whyHome.features[5].num}
-              </span>
-              <h3 className="font-display font-bold text-[22px] md:text-[28px] leading-tight mb-3">
-                {whyHome.features[5].title}
-              </h3>
-              <p className="text-[16px] md:text-[17px] leading-relaxed text-warm-white/75 max-w-[44ch]">
-                {whyHome.features[5].body}
-              </p>
-            </div>
-          </article>
-        </div>
+    <section id="why" className="bg-black text-warm-white overflow-x-hidden">
+      <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 py-20 md:py-28">
+        <h2 className="font-display font-bold text-[clamp(32px,9vw,46px)] md:text-[clamp(44px,4vw,72px)] leading-[0.95] tracking-tight text-balance max-w-[16ch] mb-6">
+          Почему «Магнум» называют <span className="italic text-burgundy-light">домом</span>
+        </h2>
+        <p className="text-[16px] md:text-[18px] leading-relaxed text-warm-white/80 max-w-[54ch] text-pretty mb-16 md:mb-24">
+          {whyHome.lead}
+        </p>
       </div>
+
+      {/* 01 house — photo then text, not overlay card */}
+      <article className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 mb-16 md:mb-24">
+        <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden">
+          <Image src={f[0].image!} alt="" fill className="object-cover object-center" sizes="100vw" loading="lazy" />
+        </div>
+        <div className="mt-6 md:mt-8 md:grid md:grid-cols-12 md:gap-8">
+          <span className="md:col-span-2 font-display text-burgundy-light text-[13px] tracking-[0.16em]">{f[0].num}</span>
+          <div className="md:col-span-10">
+            <h3 className="font-display font-bold text-[24px] md:text-[32px] mb-3">{f[0].title}</h3>
+            <p className="text-[16px] md:text-[18px] leading-relaxed text-warm-white/80 max-w-[52ch] text-pretty">{f[0].body}</p>
+          </div>
+        </div>
+      </article>
+
+      {/* 02 flacon — text left, image right */}
+      <article className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 mb-16 md:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="lg:col-span-5 lg:pr-6">
+          <span className="font-display text-burgundy-light text-[13px] tracking-[0.16em]">{f[1].num}</span>
+          <h3 className="font-display font-bold text-[22px] md:text-[28px] mt-3 mb-4">{f[1].title}</h3>
+          <p className="text-[16px] leading-relaxed text-warm-white/80 max-w-[44ch] text-pretty">{f[1].body}</p>
+        </div>
+        <div className="lg:col-span-7 relative aspect-[4/3] lg:aspect-[5/3] overflow-hidden lg:translate-x-8">
+          <Image src={f[1].image!} alt="" fill className="object-cover" sizes="(min-width: 1024px) 58vw, 100vw" loading="lazy" />
+        </div>
+      </article>
+
+      {/* 03 metro — typographic */}
+      <article className="bg-burgundy-dark mb-16 md:mb-24">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+          <p className="md:col-span-4 font-display font-bold text-[clamp(72px,18vw,160px)] leading-none text-warm-white/15">
+            5
+          </p>
+          <div className="md:col-span-8 pb-2">
+            <span className="font-display text-burgundy-light text-[13px] tracking-[0.16em]">{f[2].num}</span>
+            <h3 className="font-display font-bold text-[22px] md:text-[28px] mt-2 mb-3">{f[2].title}</h3>
+            <p className="text-[16px] md:text-[18px] leading-relaxed text-warm-white/90 max-w-[40ch]">{f[2].body}</p>
+          </div>
+        </div>
+      </article>
+
+      {/* 04 parking — horizontal */}
+      <article className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
+        <div className="md:col-span-5 relative aspect-[16/10] overflow-hidden">
+          <Image src={f[3].image!} alt="" fill className="object-cover object-[center_60%]" sizes="40vw" loading="lazy" />
+        </div>
+        <div className="md:col-span-7">
+          <span className="font-display text-burgundy-light text-[13px] tracking-[0.16em]">{f[3].num}</span>
+          <h3 className="font-display font-bold text-[22px] md:text-[26px] mt-2 mb-3">{f[3].title}</h3>
+          <p className="text-[16px] md:text-[17px] leading-relaxed text-warm-white/80 max-w-[52ch] text-pretty">{f[3].body}</p>
+        </div>
+      </article>
+
+      {/* 05 kitchen — edge image */}
+      <article className="mb-16 md:mb-24">
+        <div className="relative h-[42vw] min-h-[220px] max-h-[420px]">
+          <Image src={f[4].image!} alt="" fill className="object-cover object-center" sizes="100vw" loading="lazy" />
+        </div>
+        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 py-8">
+          <span className="font-display text-burgundy-light text-[13px] tracking-[0.16em]">{f[4].num}</span>
+          <h3 className="font-display font-bold text-[22px] md:text-[28px] mt-2 mb-3">{f[4].title}</h3>
+          <p className="text-[16px] leading-relaxed text-warm-white/80 max-w-[48ch] text-pretty">{f[4].body}</p>
+        </div>
+      </article>
+
+      {/* 06 team */}
+      <article className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 pb-20 md:pb-28 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="lg:col-span-5 relative aspect-[4/5] max-h-[560px] overflow-hidden">
+          <Image src={f[5].image!} alt="" fill className="object-cover object-[center_20%]" sizes="40vw" loading="lazy" />
+        </div>
+        <div className="lg:col-span-6 lg:col-start-7">
+          <span className="font-display text-burgundy-light text-[13px] tracking-[0.16em]">{f[5].num}</span>
+          <h3 className="font-display font-bold text-[24px] md:text-[32px] mt-3 mb-4">{f[5].title}</h3>
+          <p className="text-[17px] md:text-[19px] leading-relaxed text-warm-white/85 max-w-[40ch] text-pretty">{f[5].body}</p>
+        </div>
+      </article>
     </section>
   );
 }

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-03T17:30:00.000Z",
+  "title": "Design System: MAGNUM",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral", "displayName": "Night", "canonical": "#08090B", "tonalRamp": ["#08090B", "#14070A", "#26050C", "#430814", "#7D0B29", "#8E8B8C", "#ECE8E2", "#F1EFE9"] },
+      "burgundy": { "role": "primary", "displayName": "House wine", "canonical": "#7D0B29", "tonalRamp": ["#26050C", "#430814", "#7D0B29", "#930E31", "#B22554", "#c45a76", "#e2b4c0", "#F1EFE9"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#F1EFE9", "tonalRamp": ["#14070A", "#430814", "#8E8B8C", "#c4c0ba", "#d9d5ce", "#ECE8E2", "#F1EFE9", "#faf8f4"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Unbounded", "purpose": "H1/H2 architectural display." },
+      "body": { "displayName": "Onest", "purpose": "Body, nav, buttons." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.25, 0.46, 0.45, 0.94)", "purpose": "FAQ and color transitions." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Booking CTA on dark or paper.",
+      "html": "<a class=\"ds-btn-primary\" href=\"https://t.me/magnum_app_bot\">Записаться на игру →</a>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; height:48px; padding:0 32px; background:#7D0B29; color:#F1EFE9; font-family:Onest,sans-serif; font-size:15px; font-weight:600; border-radius:4px; text-decoration:none; } .ds-btn-primary:hover { background:#930E31; } .ds-btn-primary:focus-visible { outline:2px solid #F1EFE9; outline-offset:3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action on paper.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Смотреть фото в Instagram ↗</a>",
+      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; height:48px; padding:0 24px; background:transparent; color:#08090B; border:1px solid rgba(8,9,11,.2); font-size:14px; font-weight:600; border-radius:4px; text-decoration:none; } .ds-btn-ghost:hover { background:#08090B; color:#F1EFE9; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "House at night + magazine + Flacon — never a template.",
+    "overview": "Editorial hospitality site. Photography, type, paper vs wine. Not SaaS cards, not casino neon.",
+    "keyCharacteristics": ["Wine/paper/night", "Unbounded + Onest", "4px radius", "Local club photos", "Approved copy only"],
+    "rules": [
+      { "name": "The Rarity Rule", "body": "Burgundy fills at most one major band per viewport sequence.", "section": "colors" },
+      { "name": "The Chip Is Not the Hero Rule", "body": "Photograph and H1 own the first screen.", "section": "elevation" }
+    ],
+    "dos": ["Use real gallery photos", "Vary section structure", "Keep copy from data/content.ts"],
+    "donts": ["Equal card grids", "Invented section eyebrows", "Chip covering the heading", "Generate fake club photos when local files exist"]
+  }
+}

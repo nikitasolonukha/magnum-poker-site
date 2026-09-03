@@ -49,13 +49,13 @@ export default function Header() {
     >
       <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 flex items-center justify-between h-16 md:h-[72px]">
         {/* Logo */}
-        <a
-          href="#"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="font-display font-bold text-[17px] md:text-[19px] tracking-[0.14em] text-warm-white"
         >
           MAGNUM
-        </a>
+        </button>
 
         {/* Desktop nav */}
         <nav aria-label="Основная навигация" className="hidden lg:flex items-center gap-6">

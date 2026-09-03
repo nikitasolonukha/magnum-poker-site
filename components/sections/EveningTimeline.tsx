@@ -1,104 +1,91 @@
 import { evening } from "@/data/content";
 import { siteConfig } from "@/config/site";
+import Button from "@/components/ui/Button";
 import Image from "next/image";
 
-const stepImages: Record<string, string | null> = {
-  "01": "/gallery/image-2.webp",
-  "02": "/gallery/image-6.webp",
-  "03": "/why/food-court.png",
-  "04": "/gallery/image-5.webp",
-  "05": "/gallery/image-10.webp",
-};
+const stepImages = [
+  "/gallery/image-2.webp",
+  "/gallery/image-6.webp",
+  "/why/food-court.png",
+  "/gallery/image-5.webp",
+  "/gallery/image-10.webp",
+] as const;
 
 export default function EveningTimeline() {
   return (
     <section id="evening" className="bg-paper text-black">
       <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 py-20 md:py-28 lg:py-36">
-        {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16 md:mb-24">
-          <div className="lg:col-span-7">
-            <p className="text-[12px] font-semibold tracking-[0.2em] uppercase text-muted mb-4">
-              Формат вечера
-            </p>
-            <h2 className="font-display font-bold text-[clamp(32px,9vw,46px)] md:text-[clamp(46px,4.5vw,72px)] leading-[0.95] tracking-tight text-balance">
-              <span>Как проходит </span>
-              <span className="italic text-burgundy">вечер</span>
+        <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-start">
+          <header className="lg:col-span-4 lg:sticky lg:top-24 mb-12 lg:mb-0">
+            <h2 className="font-display font-bold text-[clamp(32px,9vw,46px)] md:text-[clamp(40px,3.6vw,64px)] leading-[0.95] tracking-tight text-balance mb-5">
+              Как проходит <span className="italic text-burgundy">вечер</span>
             </h2>
-          </div>
-          <div className="lg:col-span-5 flex items-end">
-            <p className="text-[16px] md:text-[18px] leading-relaxed text-black/70 max-w-[52ch] text-pretty">
+            <p className="text-[16px] md:text-[17px] leading-relaxed text-black/75 max-w-[42ch] text-pretty mb-8">
               {evening.lead}
             </p>
-          </div>
-        </div>
+            <Button href={siteConfig.bookingUrl} variant="ink">
+              {evening.cta} →
+            </Button>
+          </header>
 
-        {/* Steps */}
-        <div className="flex flex-col">
-          {evening.steps.map((step, idx) => {
-            const img = stepImages[step.num];
-            const isEven = idx % 2 === 1;
-
-            return (
-              <article
-                key={step.num}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 py-10 md:py-14 border-t border-black/10 first:border-t-0"
-              >
-                {/* Number */}
-                <div className="lg:col-span-1">
-                  <span className="font-display text-[48px] md:text-[64px] font-bold leading-none text-burgundy/20">
-                    {step.num}
-                  </span>
-                </div>
-
-                {/* Image */}
-                {img && (
-                  <div
-                    className={`lg:col-span-4 ${
-                      isEven ? "lg:order-last" : ""
-                    }`}
-                  >
-                    <div className="relative aspect-[4/3] md:aspect-[3/2] overflow-hidden rounded-[4px]">
-                      <Image
-                        src={img}
-                        alt={step.title}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 1024px) 33vw, 100vw"
-                        loading="lazy"
-                      />
+          <div className="lg:col-span-8 flex flex-col">
+            {evening.steps.map((step, idx) => {
+              const wide = idx === 2;
+              return (
+                <article
+                  key={step.num}
+                  className="border-t border-black/12 py-8 md:py-10 first:border-t-0 first:pt-0"
+                >
+                  <div className={`grid grid-cols-1 gap-5 ${wide ? "" : "md:grid-cols-[88px_1fr]"}`}>
+                    <span className="font-display text-[56px] md:text-[72px] font-bold leading-none text-burgundy/25">
+                      {step.num}
+                    </span>
+                    <div>
+                      {wide ? (
+                        <div className="relative -mx-5 md:mx-0 aspect-[16/8] mb-5 overflow-hidden">
+                          <Image
+                            src={stepImages[idx]}
+                            alt=""
+                            fill
+                            className="object-cover"
+                            sizes="(min-width: 1024px) 60vw, 100vw"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className={`relative overflow-hidden mb-4 ${
+                            idx === 0
+                              ? "aspect-[5/3] md:aspect-[16/9]"
+                              : idx === 1
+                                ? "md:float-right md:ml-6 md:mb-2 w-full md:w-[42%] aspect-[3/4]"
+                                : idx === 3
+                                  ? "w-[46%] aspect-square"
+                                  : "aspect-[4/3] md:w-3/5"
+                          }`}
+                        >
+                          <Image
+                            src={stepImages[idx]}
+                            alt=""
+                            fill
+                            className="object-cover"
+                            sizes="(min-width: 1024px) 40vw, 100vw"
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
+                      <h3 className="font-display font-semibold text-[20px] md:text-[24px] leading-snug mb-3 text-balance">
+                        {step.title}
+                      </h3>
+                      <p className="text-[16px] md:text-[17px] leading-relaxed text-black/75 max-w-[58ch] text-pretty">
+                        {step.body}
+                      </p>
                     </div>
                   </div>
-                )}
-
-                {/* Text */}
-                <div
-                  className={`${
-                    img ? "lg:col-span-7" : "lg:col-span-11"
-                  } flex flex-col justify-center`}
-                >
-                  <h3 className="font-display font-semibold text-[20px] md:text-[24px] leading-snug mb-3 md:mb-4 text-balance">
-                    {step.title}
-                  </h3>
-                  <p className="text-[16px] md:text-[17px] leading-relaxed text-black/70 max-w-[60ch] text-pretty">
-                    {step.body}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-14 md:mt-20 pt-10 border-t border-black/10">
-          <a
-            href={siteConfig.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center h-12 md:h-14 px-8 md:px-10 bg-black text-warm-white text-[15px] md:text-[16px] font-semibold tracking-[0.02em] rounded-[4px] hover:bg-warm-black transition-colors duration-200"
-          >
-            {evening.cta}
-            <span className="ml-2">→</span>
-          </a>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

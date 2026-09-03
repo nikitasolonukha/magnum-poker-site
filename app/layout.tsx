@@ -4,13 +4,13 @@ import "./globals.css";
 
 const unbounded = Unbounded({
   subsets: ["cyrillic", "latin"],
-  variable: "--font-display",
+  variable: "--font-unbounded",
   weight: ["400", "500", "600", "700", "800"],
 });
 
 const onest = Onest({
   subsets: ["cyrillic", "latin"],
-  variable: "--font-sans",
+  variable: "--font-onest",
 });
 
 export const metadata: Metadata = {

@@ -12,8 +12,8 @@
   --color-paper: #ECE8E2;
   --color-muted: #8E8B8C;
 
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-unbounded), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ─── Base ──────────────────────────────────────────────── */

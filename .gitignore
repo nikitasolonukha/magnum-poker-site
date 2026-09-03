@@ -5,3 +5,5 @@ coverage/
 *.log
 .env*
 !.env.example
+.impeccable/live/inject-journal.json
+.impeccable/config.local.json

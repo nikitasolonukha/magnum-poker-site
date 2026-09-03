@@ -1,0 +1,14 @@
+---
+description: MAGNUM visual system, anti-slop, and design toolkit
+alwaysApply: true
+---
+
+Before UI work, read `PRODUCT.md`, `DESIGN.md`, and `.impeccable/config.json` (`buildPath` is `code`). Homepage strategy: `.impeccable/surfaces/`. Visible copy only from `data/content.ts`. Texts may be placed on screen, not rewritten.
+
+Do not ship neuro-slop: identical card grids, 28px radii, purple gradients, glassmorphism, Inter-as-brand, gray body on burgundy, dashed placeholders, casino neon, invented copy.
+
+References: `docs/interface-toolkit.md`. Prefer live sites (Godly, Siteinspire) over Dribbble comps. Restyle any shadcn/21st/React Bits snippet to MAGNUM tokens.
+
+After substantial UI edits run `npx impeccable detect app components` when practical.
+
+Skills in `.cursor/skills/`: `impeccable`, `design-taste-frontend`, `redesign-existing-projects`, `image-to-code`, `visual`.

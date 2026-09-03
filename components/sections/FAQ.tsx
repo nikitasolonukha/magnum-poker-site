@@ -2,6 +2,7 @@
 
 import { faq } from "@/data/content";
 import { siteConfig } from "@/config/site";
+import Button from "@/components/ui/Button";
 import { useState, useCallback } from "react";
 
 export default function FAQ() {
@@ -14,23 +15,12 @@ export default function FAQ() {
   return (
     <section id="faq" className="bg-paper text-black">
       <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-16 py-20 md:py-28 lg:py-36">
-        {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12 md:mb-16">
-          <div className="lg:col-span-7">
-            <p className="text-[12px] font-semibold tracking-[0.2em] uppercase text-muted mb-4">
-              Частые вопросы
-            </p>
-            <h2 className="font-display font-bold text-[clamp(32px,9vw,46px)] md:text-[clamp(46px,4.5vw,72px)] leading-[0.95] tracking-tight text-balance">
-              <span>Коротко </span>
-              <span className="italic text-burgundy">о главном</span>
-            </h2>
-          </div>
-          <div className="lg:col-span-5 flex items-end">
-            <p className="text-[16px] md:text-[18px] leading-relaxed text-black/70 max-w-[52ch] text-pretty">
-              {faq.lead}
-            </p>
-          </div>
-        </div>
+        <h2 className="font-display font-bold text-[clamp(32px,9vw,46px)] md:text-[clamp(44px,4vw,72px)] leading-[0.95] tracking-tight text-balance mb-4">
+          Коротко <span className="italic text-burgundy">о главном</span>
+        </h2>
+        <p className="text-[16px] md:text-[18px] leading-relaxed text-black/75 max-w-[50ch] text-pretty mb-12 md:mb-16">
+          {faq.lead}
+        </p>
 
         {/* Questions */}
         <div className="max-w-[860px]">
@@ -79,15 +69,9 @@ export default function FAQ() {
 
         {/* CTA */}
         <div className="mt-12 md:mt-16">
-          <a
-            href={siteConfig.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center h-12 md:h-14 px-8 md:px-10 bg-black text-warm-white text-[15px] md:text-[16px] font-semibold tracking-[0.02em] rounded-[4px] hover:bg-warm-black transition-colors duration-200"
-          >
-            {faq.cta}
-            <span className="ml-2">→</span>
-          </a>
+          <Button href={siteConfig.bookingUrl} variant="ink">
+            {faq.cta} →
+          </Button>
         </div>
       </div>
     </section>
