@@ -1,0 +1,15 @@
+export const siteConfig = {
+  name: "MAGNUM",
+  tagline: "Ведущий дом спортивного покера в Москве",
+  city: "Москва",
+  address: "Москва, Большая Новодмитровская улица, 36с13",
+  venue: "Дизайн-завод «Флакон»",
+  metro: "«Дмитровская», 5 минут пешком",
+  hours: "по будням с 19:00 до 02:00, по выходным с 18:00 до 02:00",
+  price: "1000 ₽",
+  bookingUrl: "https://t.me/magnum_app_bot",
+  telegram: "https://t.me/magnum_poker",
+  instagram: "https://www.instagram.com/magnum_poker_moscow/",
+  reviewsUrl: "https://yandex.ru/maps/-/CTTRFVMQ",
+  mapUrl: "https://yandex.ru/maps/?text=Москва,+Большая+Новодмитровская+улица,+36с13",
+} as const;
